@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ blog.title }}
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <!-- Blog Card -->
+            <div class="card border-0 shadow-lg rounded-4">
+
+                <div class="card-body p-5">
+
+                    <!-- Title -->
+                    <h1 class="fw-bold mb-3 text-dark">
+                        {{ blog.title }}
+                    </h1>
+
+                    <!-- Meta Info -->
+                    <div class="text-muted small mb-4">
+                        Created: {{ blog.created_at|date:"M d, Y" }} |
+                        Updated: {{ blog.updated_at|date:"M d, Y" }}
+                    </div>
+
+                    <hr>
+
+                    <!-- Content -->
+                    <p class="fs-5 text-secondary mt-4" style="line-height: 1.8;">
+                        {{ blog.description }}
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Back Button -->
+            <div class="text-center mt-4">
+
+                <a href="{% url 'home' %}" class="btn btn-outline-primary px-4">
+                    ← Back to Home
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

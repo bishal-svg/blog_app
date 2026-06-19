@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-7">
+
+            <div class="card border-0 shadow-lg rounded-4">
+
+                <!-- Header -->
+                <div class="card-header bg-primary text-white text-center rounded-top-4">
+                    <h4 class="mb-0">Edit Blog ✏️</h4>
+                </div>
+
+                <!-- Body -->
+                <div class="card-body p-4">
+
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        <!-- Title -->
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Title</label>
+                            <input 
+                                name="title" 
+                                type="text" 
+                                class="form-control form-control-lg rounded-3"
+                                value="{{ blog.title }}"
+                                placeholder="Enter blog title"
+                            >
+                        </div>
+
+                        <!-- Description -->
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Description</label>
+                            <textarea 
+                                name="description"
+                                rows="6"
+                                class="form-control rounded-3"
+                                placeholder="Write your blog..."
+                            >{{ blog.description }}</textarea>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="d-flex justify-content-between mt-4">
+
+                            <a href="{% url 'home' %}" class="btn btn-outline-secondary px-4">
+                                Cancel
+                            </a>
+
+                            <button type="submit" class="btn btn-success px-4">
+                                Update Blog
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
